@@ -24,8 +24,28 @@ public class Connection : MonoBehaviourPunCallbacks
 
     }
 
-    void Update()
+    public void ButtonConnect() //Metodo de conexion con el master con el boton
     {
-        
+        RoomOptions options = new RoomOptions() { MaxPlayers = 4};
+        PhotonNetwork.JoinOrCreateRoom("room1", options, TypedLobby.Default);
     }
+    
+    override
+
+    public void OnJoinedRoom() //Metodo de conexion con una sala
+    {
+        Debug.Log("Conectado a la sala" + PhotonNetwork.CurrentRoom.Name);
+        Debug.Log("Conectado a la sala" + PhotonNetwork.CurrentRoom.PlayerCount + " jugadores");
+    }
+
+    private void Update() //Metodo que controla si pasamos a la siguiente escena si somos mas de una persona
+    {
+        if(PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        {
+            //Cargamos siguiente nivel es decir el gameplay
+            PhotonNetwork.LoadLevel(1);
+            Destroy(this);
+        }
+    }
+    
 }
