@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
         {//Cambiamos la imagen de movimiento
 
             GetComponent<SpriteRenderer>().flipX = false;
-            anim.SetBool("isRunning", true); //mio
         }
+
 
         else if (rig.velocity.x < 0.1f)
             GetComponent<SpriteRenderer>().flipX = true;
-            anim.SetBool("isRunning", true); //mio
+           
 
         if (Input.GetButtonDown("Jump")) //Añadimos el salto
         {

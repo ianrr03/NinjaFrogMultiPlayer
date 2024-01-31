@@ -22683,6 +22683,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1254210639}
+    - target: {fileID: 795304622731445727, guid: 14170685e7b2ec347b337981f0f85af9, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3732540492211314956, guid: 14170685e7b2ec347b337981f0f85af9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1525166
