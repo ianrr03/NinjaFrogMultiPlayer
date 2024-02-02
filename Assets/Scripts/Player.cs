@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     [SerializeField]
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     int jumpForce = 20;
     [SerializeField]
     Animator anim;
+    [SerializeField]
+    
     void Start()
     {
         if (GetComponent<PhotonView>().IsMine)
@@ -34,8 +37,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Le damos velocidad pero tambien en el eje y, porque si no se quedaria parado
-        [PunRPC]
-        void RotateSprite(bool rotate)
+        
+        
+
+        [PunRPC] void RotateSprite(bool rotate)
         {
             GetComponent<SpriteRenderer>().flipX = rotate;
         }
@@ -49,7 +54,7 @@ public class Player : MonoBehaviour
             //Cambiamos la imagen de movimiento
                 GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, false);
                 //GetComponent<SpriteRenderer>().flipX = false;
-            else if (rig.velocity.x < 0.1f && GetComponent<SpriteRenderer>().flipX)
+            else if (rig.velocity.x <-0.1f &&! GetComponent<SpriteRenderer>().flipX)
                 GetComponent<PhotonView>().RPC("RotateSprite", RpcTarget.All, true);//rotar el sprite
             //GetComponent<SpriteRenderer>().flipX = true;
 
