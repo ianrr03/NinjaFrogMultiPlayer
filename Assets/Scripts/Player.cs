@@ -7,14 +7,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 3.0f;
-    [SerializeField]
-    Rigidbody2D rig;
-    [SerializeField]
-    int jumpForce = 20;
-    [SerializeField]
-    Animator anim;
+    [SerializeField]    float speed = 3.0f;
+    [SerializeField]    Rigidbody2D rig;
+    [SerializeField]    int jumpForce = 20;
+    [SerializeField]    Animator anim;
     [SerializeField]
     
     void Start()
@@ -40,10 +36,7 @@ public class Player : MonoBehaviour
         
         
 
-        [PunRPC] void RotateSprite(bool rotate)
-        {
-            GetComponent<SpriteRenderer>().flipX = rotate;
-        }
+
 
 
         if (GetComponent<PhotonView>().IsMine) 
@@ -71,5 +64,12 @@ public class Player : MonoBehaviour
         }
         
         
+    }
+
+
+    [PunRPC] //este metodo estaba en el update y tiene que estar fuera porque es un metodo
+    void RotateSprite(bool rotate)
+    {
+        GetComponent<SpriteRenderer>().flipX = rotate;
     }
 }
