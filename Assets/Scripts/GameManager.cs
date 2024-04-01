@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     //public GameObject fresa; examen
     //private float rangoGeneracion = 9.0f; examen
     // Start is called before the first frame update
+
+    //Array con los posibles puntos de spwan de las frutas
+    public GameObject[] fruits;
     void Start()
     {
         
@@ -24,18 +27,33 @@ public class GameManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Frog", new Vector3(-3, -3, 0), Quaternion.identity);
-            PhotonNetwork.Instantiate("Strawberry_0", new Vector3(29, 5, 0), Quaternion.identity); //no quiere instanciar la fresa
-            Debug.Log("Has pasado por la fresa");
+            
+            
         }
 
         else
+        {
             PhotonNetwork.Instantiate("VirtualGuyPrefab", new Vector3(51, -3, 0), Quaternion.identity);
-            PhotonNetwork.Instantiate("Strawberry_0", new Vector3(29, 5, 0), Quaternion.identity); //no quiere instanciar la fresa
+        }
+            
+        NewFruit();//Instancia la primera fruta del juego 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NewFruit()
     {
-        
+        //Espera 5 segundos y llama al método que instancia una fruta          
+        Invoke("InstantiateFruit", 5.0f);
     }
+
+    private void InstantiateFruit()
+    {
+        if (PhotonNetwork.IsMasterClient) //Hay que ponerlo para que solo instancie la fruta el jugador Master. Si no, cada jugador que hubiera instanciaría una
+        {
+            //Instancia una fruta en la posición de uno de los swpanpoints elegido aleatoriamente (de cero hasta el número de spawn points que haya)
+            int spawnPointFruit = Random.Range(0, fruits.Length);
+            PhotonNetwork.Instantiate("Strawberry_0", fruits[spawnPointFruit].transform.position, Quaternion.identity);
+        }
+
+    }
+    
 }

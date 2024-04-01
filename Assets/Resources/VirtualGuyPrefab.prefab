@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8428279323801303964}
   - component: {fileID: 2943917576258503968}
   - component: {fileID: 7694530279677730459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VirtualGuyPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1095543637
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -155,6 +155,10 @@ MonoBehaviour:
   rig: {fileID: 65928030891411626}
   jumpForce: 500
   anim: {fileID: 5339686722546066960}
+  puntos: 0
+  puntuacionJugadorFrog: {fileID: 0}
+  puntuacionJugadorVirtualGuy: {fileID: 0}
+  FresaFruit: {fileID: 0}
 --- !u!61 &4624452719300597960
 BoxCollider2D:
   m_ObjectHideFlags: 0

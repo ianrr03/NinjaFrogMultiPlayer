@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5146725922087608879}
   - component: {fileID: 3794476815977634584}
   - component: {fileID: 5026011735950523209}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Frog
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1095543637
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -155,6 +155,10 @@ MonoBehaviour:
   rig: {fileID: 8997718698712374821}
   jumpForce: 500
   anim: {fileID: 4217362716767817558}
+  puntos: 0
+  puntuacionJugadorFrog: {fileID: 0}
+  puntuacionJugadorVirtualGuy: {fileID: 0}
+  FresaFruit: {fileID: 3520892840208346919, guid: 4328cb073d6a3c74689cf42359a646c6, type: 3}
 --- !u!61 &4105497075331224538
 BoxCollider2D:
   m_ObjectHideFlags: 0
